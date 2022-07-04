@@ -868,7 +868,7 @@ class Spotify(commands.Cog):
         """
         Shows your current Spotify Settings
         """
-        em = discord.Embed(color=discord.Colour(0x1DB954))
+        em = discord.Embed(color=discord.Colour.dark_theme()
         em.set_author(
             name=ctx.author.display_name + _(" Spotify Profile"), icon_url=ctx.author.avatar_url
         )
