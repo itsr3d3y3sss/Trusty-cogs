@@ -67,7 +67,7 @@ class SpotifyTrackPages(menus.ListPageSource):
         self, menu: menus.MenuPages, track: tekore.model.FullTrack
     ) -> discord.Embed:
         self.current_track = track
-        em = discord.Embed(color=discord.Colour(0x607d8b))
+        em = discord.Embed(color=discord.Colour(0x546e7a))
         url = f"https://open.spotify.com/track/{track.id}"
         artist_title = f"{track.name} by " + ", ".join(a.name for a in track.artists)
         album = getattr(track, "album", "")
@@ -106,7 +106,7 @@ class SpotifyArtistPages(menus.ListPageSource):
         self, menu: menus.MenuPages, artist: tekore.model.FullArtist
     ) -> discord.Embed:
         self.current_track = artist
-        em = discord.Embed(color=discord.Colour(0x607d8b))
+        em = discord.Embed(color=discord.Colour(0x546e7a))
         url = f"https://open.spotify.com/artist/{artist.id}"
         artist_title = f"{artist.name}"
         em.set_author(
@@ -141,7 +141,7 @@ class SpotifyAlbumPages(menus.ListPageSource):
         self, menu: menus.MenuPages, album: tekore.model.FullAlbum
     ) -> discord.Embed:
         self.current_track = album
-        em = discord.Embed(color=discord.Colour(0x607d8b))
+        em = discord.Embed(color=discord.Colour(0x546e7a))
         url = f"https://open.spotify.com/album/{album.id}"
         title = f"{album.name} by {humanize_list([a.name for a in album.artists])}"
         if len(title) > 256:
@@ -179,7 +179,7 @@ class SpotifyPlaylistPages(menus.ListPageSource):
     ) -> discord.Embed:
         self.current_track = playlist
         em = None
-        em = discord.Embed(color=discord.Colour(0x607d8b))
+        em = discord.Embed(color=discord.Colour(0x546e7a))
         url = f"https://open.spotify.com/playlist/{playlist.id}"
         artists = getattr(playlist, "artists", [])
         artist = humanize_list([a.name for a in artists])[:256]
@@ -219,7 +219,7 @@ class SpotifyNewPages(menus.ListPageSource):
     ) -> discord.Embed:
         self.current_track = playlist
         em = None
-        em = discord.Embed(color=discord.Colour(0x607d8b))
+        em = discord.Embed(color=discord.Colour(0x546e7a))
         url = f"https://open.spotify.com/playlist/{playlist.id}"
         artists = getattr(playlist, "artists", [])
         artist = humanize_list([a.name for a in artists])[:256]
@@ -264,7 +264,7 @@ class SpotifyEpisodePages(menus.ListPageSource):
     ) -> discord.Embed:
         self.current_track = episode
         show = episode.show
-        em = discord.Embed(color=discord.Colour(0x607d8b))
+        em = discord.Embed(color=discord.Colour(0x546e7a))
         url = f"https://open.spotify.com/episode/{episode.id}"
         artist_title = f"{show.name} by {show.publisher}"
         em.set_author(
@@ -294,7 +294,7 @@ class SpotifyShowPages(menus.ListPageSource):
         self, menu: menus.MenuPages, show: tekore.model.FullShow
     ) -> discord.Embed:
         self.current_track = show
-        em = discord.Embed(color=discord.Colour(0x607d8b))
+        em = discord.Embed(color=discord.Colour(0x546e7a))
         url = f"https://open.spotify.com/show/{show.id}"
         artist_title = f"{show.name} by {show.publisher}"
         em.set_author(
@@ -326,7 +326,7 @@ class SpotifyRecentSongPages(menus.ListPageSource):
         track = history.track
         self.current_track = track
         em = None
-        em = discord.Embed(color=discord.Colour(0x607d8b), timestamp=history.played_at)
+        em = discord.Embed(color=discord.Colour(0x546e7a), timestamp=history.played_at)
         url = f"https://open.spotify.com/track/{track.id}"
         artist_title = f"{track.name} by " + ", ".join(a.name for a in track.artists)
         em.set_author(
@@ -358,7 +358,7 @@ class SpotifyPlaylistsPages(menus.ListPageSource):
         self, menu: menus.MenuPages, playlists: List[tekore.model.SimplePlaylist]
     ) -> discord.Embed:
         em = None
-        em = discord.Embed(color=discord.Colour(0x607d8b))
+        em = discord.Embed(color=discord.Colour(0x546e7a))
         em.set_author(
             name=f"{menu.ctx.author.display_name}" + _("'s Spotify Playlists"),
             icon_url=menu.ctx.author.avatar_url,
@@ -385,7 +385,7 @@ class SpotifyTopTracksPages(menus.ListPageSource):
         self, menu: menus.MenuPages, tracks: List[tekore.model.FullTrack]
     ) -> discord.Embed:
         em = None
-        em = discord.Embed(color=discord.Colour(0x607d8b))
+        em = discord.Embed(color=discord.Colour(0x546e7a))
         em.set_author(
             name=f"{menu.ctx.author.display_name}" + _("'s Top Tracks"),
             icon_url=menu.ctx.author.avatar_url,
@@ -410,7 +410,7 @@ class SpotifyTopArtistsPages(menus.ListPageSource):
         self, menu: menus.MenuPages, artists: List[tekore.model.FullArtist]
     ) -> discord.Embed:
         em = None
-        em = discord.Embed(color=discord.Colour(0x607d8b))
+        em = discord.Embed(color=discord.Colour(0x546e7a))
         em.set_author(
             name=f"{menu.ctx.author.display_name}" + _("'s Top Artists"),
             icon_url=menu.ctx.author.avatar_url,
@@ -442,7 +442,7 @@ class SpotifyPages(menus.PageSource):
 
         state = cur_state[0]
         is_liked = cur_state[1]
-        em = discord.Embed(color=discord.Colour(0x607d8b))
+        em = discord.Embed(color=discord.Colour(0x546e7a))
         self.current_track = state.item
         if getattr(state.item, "is_local", False):
             url = "https://open.spotify.com/"
