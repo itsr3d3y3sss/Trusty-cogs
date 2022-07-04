@@ -67,7 +67,7 @@ class SpotifyTrackPages(menus.ListPageSource):
         self, menu: menus.MenuPages, track: tekore.model.FullTrack
     ) -> discord.Embed:
         self.current_track = track
-        em = discord.Embed(color=discord.Colour(0x546e7a))
+        em = discord.Embed(color=discord.Colour(99AAB5))
         url = f"https://open.spotify.com/track/{track.id}"
         artist_title = f"{track.name} by " + ", ".join(a.name for a in track.artists)
         album = getattr(track, "album", "")
@@ -106,7 +106,7 @@ class SpotifyArtistPages(menus.ListPageSource):
         self, menu: menus.MenuPages, artist: tekore.model.FullArtist
     ) -> discord.Embed:
         self.current_track = artist
-        em = discord.Embed(color=discord.Colour(0x546e7a))
+        em = discord.Embed(color=discord.Colour(99AAB5))
         url = f"https://open.spotify.com/artist/{artist.id}"
         artist_title = f"{artist.name}"
         em.set_author(
