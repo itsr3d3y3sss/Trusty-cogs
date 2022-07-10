@@ -166,53 +166,6 @@ class ExtendedModLog(EventMixin, commands.Cog):
             await self.config.guild(ctx.message.guild).set(inv_settings)
         await self.modlog_settings(ctx)
 
-    @_modlog.command(name="colour", aliases=["color"])
-    async def _set_event_colours(
-        self, ctx: commands.Context, colour: discord.Colour, *events: EventChooser
-    ):
-        """
-        Set custom colours for modlog events
-
-        `colour` must be a hex code or a [built colour.](https://discordpy.readthedocs.io/en/latest/api.html#colour)
-
-        `[events...]` must be any of the following options (more than one event can be provided at once):
-            `channel_change` - Updates to channel name, etc.
-            `channel_create`
-            `channel_delete`
-            `commands_used`  - Bot command usage
-            `emoji_change`   - Emojis added or deleted
-            `guild_change`   - Server settings changed
-            `message_edit`
-            `message_delete`
-            `member_change`  - Member changes like roles added/removed and nicknames
-            `role_change`    - Role updates like permissions
-            `role_create`
-            `role_delete`
-            `voice_change`   - Voice channel join/leave
-            `member_join`
-            `member_left`
-            `invite_created`
-            `invite_deleted`
-        """
-        if len(events) == 0:
-            return await ctx.send(_("You must provide which events should be included."))
-        if ctx.guild.id not in self.settings:
-            self.settings[ctx.guild.id] = inv_settings
-        if colour:
-            new_colour = colour.value
-        else:
-            new_colour = colour
-        for event in events:
-            self.settings[ctx.guild.id][event]["colour"] = new_colour
-            await self.config.guild(ctx.guild).set_raw(
-                event, value=self.settings[ctx.guild.id][event]
-            )
-        await ctx.send(
-            _("{event} has been set to {colour}").format(
-                event=humanize_list([e.replace("user_", "member_") for e in events]),
-                colour=str(colour),
-            )
-        )
 
     @_modlog.command(name="embeds", aliases=["embed"])
     async def _set_embds(
