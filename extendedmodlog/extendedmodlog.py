@@ -191,8 +191,6 @@ class ExtendedModLog(EventMixin, commands.Cog):
             `voice_change`   - Voice channel join/leave
             `member_join`
             `member_left`
-
-            **Requires Red 3.3+ and discord.py 1.3+**
             `invite_created`
             `invite_deleted`
         """
@@ -227,24 +225,22 @@ class ExtendedModLog(EventMixin, commands.Cog):
 
         `[events...]` must be any of the following options (more than one event can be provided at once):
             `channel_change` - Updates to channel name, etc.
-            `channel_create`
-            `channel_delete`
-            `commands_used`  - Bot command usage
-            `emoji_change`   - Emojis added or deleted
-            `guild_change`   - Server settings changed
-            `message_edit`
-            `message_delete`
-            `member_change`  - Member changes like roles added/removed and nicknames
-            `role_change`    - Role updates like permissions
-            `role_create`
-            `role_delete`
-            `voice_change`   - Voice channel join/leave
-            `member_join`
-            `member_left`
-
-            **Requires Red 3.3+ and discord.py 1.3+**
-            `invite_created`
-            `invite_deleted`
+            `channel_create` - Log created channels.
+            `channel_delete` - Log deleted channels.
+            `commands_used`  - Bot command usage.
+            `emoji_change`   - Emojis added or deleted.
+            `guild_change`   - Server settings changed.
+            `message_edit`   - Message edit logs.
+            `message_delete` - Message delete logs.
+            `member_change`  - Member changes like roles added/removed and nicknames.
+            `role_change`    - Role updates like permissions.
+            `role_create`    - Role created logs.
+            `role_delete`    - Role delete logs.
+            `voice_change`   - Voice channel join/leave.
+            `member_join`    - Member join logs.
+            `member_left`    - Member leave logs.
+            `invite_created` - Log created invites.
+            `invite_deleted` - Log deleted invites.
         """
         if len(events) == 0:
             return await ctx.send(_("You must provide which events should be included."))
