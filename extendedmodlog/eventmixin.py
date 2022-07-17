@@ -380,7 +380,7 @@ class EventMixin:
             if perp:
                 embed.add_field(name=_("Deleted by"), value=perp)
             if message.attachments:
-                files = ", ".join(a.filename for a in message.attachments)
+                files = [await a.to_file() for a in message.attachments]
                 if len(message.attachments) > 1:
                     files = files[:-2]
                 embed.add_field(name=_("Attachments"), value=files)
