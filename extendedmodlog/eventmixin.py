@@ -379,20 +379,15 @@ class EventMixin:
             embed.add_field(name=_("Channel"), value=message_channel.mention)
             if perp:
                 embed.add_field(name=_("Deleted by"), value=perp)
-            if message.attachments:
-                files = [await a.to_file() for a in message.attachments]
-                if len(message.attachments) > 1:
-                    files = files[:-2]
-                embed.add_field(name=_("Attachments"), value=files)
             embed.set_author(
                 name=_("{member} ({m_id})- Deleted Message").format(member=author, m_id=author.id),
                 icon_url=str(message.author.avatar_url),
             )
-           if message.attachments:
-     files = [await a.to_file() for a in message.attachments]
-            await channel.send(embed=embed, files=files)
-        else:
-            await channel.send(embed=embed)
+            if message.attachments:
+                files = [await a.to_file() for a in message.attachments]
+                await channel.send(embed=embed, files=files)
+            else:
+                await channel.send(embed=embed)
         else:
             clean_msg = escape(message.clean_content, mass_mentions=True)[
                 : (1990 - len(infomessage))
