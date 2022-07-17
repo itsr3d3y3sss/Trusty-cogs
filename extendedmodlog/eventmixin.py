@@ -388,6 +388,10 @@ class EventMixin:
                 name=_("{member} ({m_id})- Deleted Message").format(member=author, m_id=author.id),
                 icon_url=str(message.author.avatar_url),
             )
+           if message.attachments:
+     files = [await a.to_file() for a in message.attachments]
+            await channel.send(embed=embed, files=files)
+        else:
             await channel.send(embed=embed)
         else:
             clean_msg = escape(message.clean_content, mass_mentions=True)[
