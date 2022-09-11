@@ -318,6 +318,22 @@ class ExtendedModLog(EventMixin, commands.Cog):
         *events: EventChooser,
     ) -> None:
         """
+            `channel_change` - Updates to channel name, etc.
+            `channel_create` - Log channel creations.
+            `channel_delete` - Log channel deletions.
+            `emoji_change`   - Emojis added or deleted.
+            `guild_change`   - Server settings changed.
+            `message_edit`   - Log edited messages.
+            `message_delete` - Log deleted messages.
+            `member_change`  - Member changes like roles added/removed and nicknames.
+            `role_change`    - Role updates like permissions.
+            `role_create`    - Log role creations.
+            `role_delete`    - Log role deletions.
+            `voice_change`   - Voice channel join/leave.
+            `member_join`    - Log user/bot joins.
+            `member_left`    - Log user/bot leaves.
+            `invite_created` - Log created invites.
+            `invite_deleted` - Log deleted invites.
         """
         if len(events) == 0:
             return await ctx.send(_("You must provide which events should be included."))
