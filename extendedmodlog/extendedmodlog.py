@@ -323,22 +323,22 @@ class ExtendedModLog(EventMixin, commands.Cog):
         `<channel>` The text channel to send the events to.
         
         `[events...]` must be any of the following options (more than one event can be provided at once):
-            `channel_change` - Updates to channel name, etc.
-            `channel_create` - Log channel creations.
-            `channel_delete` - Log channel deletions.
-            `emoji_change`   - Emojis added or deleted.
-            `guild_change`   - Server settings changed.
-            `message_edit`   - Log edited messages.
-            `message_delete` - Log deleted messages.
-            `member_change`  - Member changes like roles added/removed and nicknames.
-            `role_change`    - Role updates like permissions.
-            `role_create`    - Log role creations.
-            `role_delete`    - Log role deletions.
-            `voice_change`   - Voice channel join/leave.
-            `member_join`    - Log user/bot joins.
-            `member_left`    - Log user/bot leaves.
-            `invite_created` - Log created invites.
-            `invite_deleted` - Log deleted invites.
+            `channel_change`
+            `channel_create`
+            `channel_delete`
+            `emoji_change`  
+            `guild_change`   
+            `message_edit`  
+            `message_delete` 
+            `member_change`  
+            `role_change`    
+            `role_create`    
+            `role_delete`    
+            `voice_change`   
+            `member_join`    
+            `member_left`    
+            `invite_created` 
+            `invite_deleted`
         """
         if len(events) == 0:
             return await ctx.send(_("You must provide which events should be included."))
