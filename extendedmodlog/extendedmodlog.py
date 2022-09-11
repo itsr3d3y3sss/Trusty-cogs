@@ -318,6 +318,11 @@ class ExtendedModLog(EventMixin, commands.Cog):
         *events: EventChooser,
     ) -> None:
         """
+        Set the channel for modlogs.
+        
+        `<channel>` The text channel to send the events to.
+        
+        `[events...]` must be any of the following options (more than one event can be provided at once):
             `channel_change` - Updates to channel name, etc.
             `channel_create` - Log channel creations.
             `channel_delete` - Log channel deletions.
