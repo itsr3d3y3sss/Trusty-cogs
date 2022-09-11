@@ -293,8 +293,6 @@ class ExtendedModLog(EventMixin, commands.Cog):
             `voice_change`   - Voice channel join/leave
             `member_join`
             `member_left`
-
-            **Requires Red 3.3+ and discord.py 1.3+**
             `invite_created`
             `invite_deleted`
         """
@@ -342,8 +340,6 @@ class ExtendedModLog(EventMixin, commands.Cog):
             `voice_change`   - Voice channel join/leave
             `member_join`
             `member_left`
-
-            **Requires Red 3.3+ and discord.py 1.3+**
             `invite_created`
             `invite_deleted`
         """
@@ -388,8 +384,6 @@ class ExtendedModLog(EventMixin, commands.Cog):
             `voice_change`   - Voice channel join/leave
             `member_join`
             `member_left`
-
-            **Requires Red 3.3+ and discord.py 1.3+**
             `invite_created`
             `invite_deleted`
         """
