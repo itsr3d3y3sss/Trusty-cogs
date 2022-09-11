@@ -364,8 +364,7 @@ class ExtendedModLog(EventMixin, commands.Cog):
     ) -> None:
         """
         Reset the modlog event to the default modlog channel.
-
-        `[events...]` must be any of the following options (more than one event can be provided at once):
+       `[events...]` must be any of the following options (more than one event can be provided at once):
             `channel_change` - Updates to channel name, etc.
             `channel_create` - Log channel creations.
             `channel_delete` - Log channel deletions.
